@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enhanced Ferroelectric P–E Hysteresis Simulation</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+    body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+    h1 { text-align: center; color: #d32f2f; }
+    section { background: #fff; padding: 20px; margin: 20px auto; border-radius: 15px; max-width: 1000px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+    .controls { text-align: center; margin-bottom: 20px; }
+    input { width: 100px; margin: 0 10px; }
+    #plot { width: 100%; height: 600px; }
+</style>
+</head>
+<body>
+
+<h1>Enhanced Ferroelectric P–E Hysteresis Simulation</h1>
+
+<section>
+    <h2>Material Controls</h2>
+    <div class="controls">
+        <label>Ps: <input type="number" id="Ps" value="1" step="0.1"></label>
+        <label>Ec: <input type="number" id="Ec" value="0.5" step="0.1"></label>
+        <label>Cycles: <input type="number" id="cycles" value="2" min="1" max="5" step="1"></label>
+        <label>Speed(ms): <input type="number" id="speed" value="20" step="5"></label>
+        <button onclick="startAnimation()">Animate Loop</button>
+    </div>
+</section>
+
+<section>
+    <h2>P–E Hysteresis Curve</h2>
+    <div id="plot"></div>
+</section>
+
+<section>
+    <h2>Observations</h2>
+    <p id="observations">Press "Animate Loop" to see the P–E hysteresis dynamically.</p>
+</section>
+
+<script>
+function polarization(E, Ps, Ec) {
+    return E.map(e => Ps * Math.tanh(e / Ec));
+}
+
+function generateE(maxE, pointsPerCycle, cycles=1) {
+    let E = [];
+    for (let i = 0; i < pointsPerCycle; i++) {
+        E.push(-maxE + (4*maxE*i)/pointsPerCycle);
+    }
+    let fullE = [];
+    for(let c=0;c<cycles;c++){
+        fullE = fullE.concat(E, E.map(e => -e));
+    }
+    return fullE;
+}
+
+function animateLoop() {
+    let Ps = parseFloat(document.getElementById('Ps').value);
+    let Ec = parseFloat(document.getElementById('Ec').value);
+    let cycles = parseInt(document.getElementById('cycles').value);
+    let speed = parseInt(document.getElementById('speed').value);
+
+    let points = 300;
+    let maxE = 2*Ec;
+    let E = generateE(maxE, points, cycles);
+    let P = polarization(E, Ps, Ec);
+
+    // Split increasing/decreasing branches
+    let E_inc=[], P_inc=[], E_dec=[], P_dec=[];
+    for(let i=1;i<E.length;i++){
+        if(E[i]-E[i-1] >=0){ E_inc.push(E[i]); P_inc.push(P[i]); }
+        else{ E_dec.push(E[i]); P_dec.push(P[i]); }
+    }
+
+    let trace_inc = {x:[], y:[], mode:'lines', line:{color:'crimson', width:3}, name:'Increasing E'};
+    let trace_dec = {x:[], y:[], mode:'lines', line:{color:'blue', width:3}, name:'Decreasing E'};
+
+    let layout = {
+        title: 'Enhanced P–E Hysteresis Curve',
+        xaxis:{title:'Electric Field (kV/cm)'},
+        yaxis:{title:'Polarization (C/m²)'},
+        shapes:[
+            { type: 'line', x0:0, y0:Math.min(P), x1:0, y1:Math.max(P), line:{dash:'dash', color:'black'} },
+            { type: 'line', x0:Math.min(E), y0:0, x1:Math.max(E), y1:0, line:{dash:'dash', color:'black'} }
+        ]
+    };
+
+    Plotly.newPlot('plot', [trace_inc, trace_dec], layout, {responsive:true});
+
+    let i=0;
+    function step(){
+        if(i<E_inc.length){
+            trace_inc.x.push(E_inc[i]); trace_inc.y.push(P_inc[i]);
+            trace_dec.x.push(E_dec[i]); trace_dec.y.push(P_dec[i]);
+            Plotly.redraw('plot');
+            i++;
+            setTimeout(step, speed);
+        } else {
+            // After animation, display Pr
+            let PrIndex = E.findIndex(e=>Math.abs(e)<0.01);
+            let Pr = P[PrIndex];
+            document.getElementById('observations').innerHTML = `Approximate Remanent Polarization (Pr): ${Pr.toFixed(2)} C/m²`;
+        }
+    }
+    step();
+}
+
+function startAnimation(){ animateLoop(); }
+</script>
+
+</body>
+</html>

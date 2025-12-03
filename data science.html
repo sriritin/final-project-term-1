@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Course - Glass UI</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  body {
+    background-color: rgb(21, 95, 95);
+    background-size: cover;
+    background-position: center;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+  }
+
+  .navbar { background-color: #0d6efd; 
+    font-weight: bold; 
+  }
+
+  .glass-card {
+    backdrop-filter: blur(15px);
+    background: rgba(39, 3, 128, 0.15);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    transition: 0.4s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 50px rgba(0,0,0,0.55);
+  }
+
+  .section-title {
+    font-weight: bold;
+    color: #ffe57f;
+  }
+
+  footer {
+    margin-top: 50px;
+    padding: 40px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+  }
+
+  .lesson-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .timeline {
+    border-left: 3px solid #ffe57f;
+    margin-left: 20px;
+    padding-left: 20px;
+  }
+
+  .timeline-step {
+    margin-bottom: 20px;
+  }
+
+  .timeline-step b {
+    color: #ffe57f;
+  }
+
+  .faq-box {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .faq-answer {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .faq:target .faq-answer {
+    display: block;
+  }
+
+  .partner-logo {
+    width: 120px;
+    opacity: 0.7;
+    margin: 10px;
+  }
+</style>
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">hursley</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about page.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="course page.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="login page for final project.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<br><br><br><br>
+<div class="container text-center">
+  <div class="glass-card">
+    <h1 class="fw-bold">Data Science Course (Advanced)</h1>
+    <p>Master Python, Machine Learning and AI from scratch.</p>
+    <a href="#register" class="btn btn-warning">Enroll Now</a> &nbsp;
+    <a href="https://www.nrcmec.org/pdf/Course-Content/CSE-DS/III_ISem/IDS/IDS%20COURSE%20CONTENT.pdf" class="btn btn-outline-light">Download Syllabus</a>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row text-center">
+    <div class="col-md-3"><div class="glass-card"> 120+ Lessons</div></div>
+    <div class="col-md-3"><div class="glass-card"> AI + ML Projects</div></div>
+    <div class="col-md-3"><div class="glass-card"> Certificate</div></div>
+    <div class="col-md-3"><div class="glass-card"> Placement Help</div></div>
+  </div>
+</div>
+<div class="container mt-5">
+  <h2 class="section-title text-center">Your Learning Journey</h2>
+  <div class="glass-card">
+    <div class="timeline">
+      <div class="timeline-step"><b>Week 1:</b> Python Basics</div>
+      <div class="timeline-step"><b>Week 3:</b> Data Cleaning + Analysis</div>
+      <div class="timeline-step"><b>Week 5:</b> ML Algorithms</div>
+      <div class="timeline-step"><b>Week 7:</b> Deep Learning</div>
+      <div class="timeline-step"><b>Final:</b> Capstone Project</div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <h2 class="section-title text-center">FAQ</h2>
+
+  <a href="#q1" class="text-white text-decoration-none">
+    <div class="faq faq-box" id="q1">
+      <b>What is the duration of the course?</b>
+      <div class="faq-answer">It is a 2-month structured program.</div>
+    </div>
+  </a>
+
+  <a href="#q2" class="text-white text-decoration-none">
+    <div class="faq faq-box" id="q2">
+      <b>Do I get a certificate?</b>
+      <div class="faq-answer">Yes, a verified certificate is provided.</div>
+    </div>
+  </a>
+
+  <a href="#q3" class="text-white text-decoration-none">
+    <div class="faq faq-box" id="q3">
+      <b>Can beginners join?</b>
+      <div class="faq-answer">Absolutely! No technical background needed.</div>
+    </div>
+  </a>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center section-title">Student Testimonials</h2>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="glass-card text-center">
+        <p>"Amazing course! I got my first internship."</p>
+        <h6>– Rahul</h6>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="glass-card text-center">
+        <p>"The projects helped me build a strong portfolio."</p>
+        <h6>– Priya</h6>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="glass-card text-center">
+        <p>"Best beginner-friendly DS course on the internet."</p>
+        <h6>– John</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center section-title">Our Hiring Partners</h2>
+
+  <div class="text-center mt-3">
+    <img src="https://via.placeholder.com/120" class="partner-logo">
+    <img src="https://via.placeholder.com/120" class="partner-logo">
+    <img src="https://via.placeholder.com/120" class="partner-logo">
+  </div>
+</div>
+
+<div class="container mt-5" id="register">
+  <div class="glass-card">
+    <h2 class="text-center section-title">Register Now</h2>
+    <form class="row g-3">
+      <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name"></div>
+      <div class="col-md-6"><input type="email" class="form-control" placeholder="Email"></div>
+      <div class="col-12"><button class="btn btn-warning w-100">Submit</button></div>
+    </form>
+  </div>
+</div>
+<footer class="mt-5">
+  <div class="row">
+    <div class=" col-md-7 text-end">
+      <p>&copy; hursley.co All rights reserved.</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

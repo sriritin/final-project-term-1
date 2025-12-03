@@ -1,0 +1,234 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" /> 
+  <script src="js/bootstrap.bundle.min.js"></script> 
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+background-color: cadetblue;
+background-size: cover;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+.glass-card {
+    backdrop-filter: blur(15px);
+    background: rgba(39, 3, 128, 0.1);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    transition: 0.4s ease;
+  }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px; 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background: rgba(255,255,255,0.1);
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+    .btn-register {
+      background-color: #fff;
+      color: #2575fc;
+      border: none;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .btn-register:hover {
+      background-color: #e0e0e0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 50px 0 30px;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #ff0000;
+    }
+
+    .glass-card.course-card {
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .glass-card.course-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .course-card .card-body {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #ccc;
+      padding: 30px 0;
+      text-align: center;
+    }
+ section { padding: 80px 0; 
+ }
+   .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 50px rgba(0,0,0,0.55);
+  }
+  footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #0d6efd;
+      color: #fff;
+      text-align: center;
+  }
+     .navbar {
+      background-color: #000000;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">hursley</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about page.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="course page.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="login page for final project.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="glass-card hero mt-5">
+    <h1>Welcome to hursley </h1>
+    <p>Register for top-rated courses and boost your career today</p>
+    <a href="registation for final fw.html" class="btn btn-register btn-lg">Register Now</a>
+  </section>
+<div class="container mt-5">
+  <h2 class="section-title">Popular Courses</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card course-card">
+            <img src="html.webp" alt="Web Development" />
+            <div class="card-body">
+              <h5 class="card-title">Web Development</h5>
+              <p class="card-text">Learn HTML, CSS, JavaScript and build responsive websites from scratch.</p>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card course-card">
+            <h5>More Info</h5>
+            <p>Duration: 3 months<br>Level: Beginner to Advanced<br>Certificate included and for more information</p>
+            <a href="web development page.html" class="btn btn-light mt-3">Read me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card course-card">
+            <img src="rt.jpg" alt="Data Science" />
+            <div class="card-body">
+              <h5 class="card-title">Data Science</h5>
+              <p class="card-text">Master Python, statistics, and machine learning for real-world data projects.</p>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card course-card">
+            <h5>More Info</h5>
+            <p>Duration: 4 months<br>Level: Intermediate<br>Hands-on projects included </p>
+            <a href="data science page.html" class="btn btn-light mt-3">Read me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card course-card">
+            <img src="uiux.webp" alt="UI/UX Design" />
+            <div class="card-body">
+              <h5 class="card-title">UI/UX Design</h5>
+              <p class="card-text">Design intuitive interfaces and improve user experience with modern tools.</p>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card course-card">
+            <h5>More Info</h5>
+            <p>Duration: 2 months<br>Level: Beginner<br>Portfolio projects included </p>
+            <a href="uiux design page.html" class="btn btn-light mt-3">Read me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  <div>
+  <footer  class="glass-card text-center">
+    <p>&copy; hursley.co All rights reserved.</p>
+  </footer>
+  </div>
+<div>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
